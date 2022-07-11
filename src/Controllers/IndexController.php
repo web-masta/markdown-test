@@ -1,10 +1,10 @@
 <?php
-    namespace WebMasta\MarkdownTest;
+    namespace WebMasta\MarkdownTest\Controllers;
     
     use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
     use Symfony\Component\HttpFoundation\Response;
     use Symfony\Component\Routing\Annotation\Route;
-    
+
     class IndexController extends AbstractController
     {
         #[Route('/markdown', name: 'markdown_index')]
