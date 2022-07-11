@@ -1,0 +1,19 @@
+{
+    "name": "web-masta/markdown-test",
+    "description": "Markdown test",
+    "type": "extension",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "WebMasta\\MarkdownTest\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ivan Veselov",
+            "email": "ivan.webmasta@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
