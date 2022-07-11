@@ -17,5 +17,5 @@
             "email": "ivan.webmasta@gmail.com"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
