@@ -8,7 +8,6 @@
     class IndexController extends AbstractController
     {
         #[Route('/markdown', name: 'markdown_index')]
-        //asasd
         public function index(): Response
         {
             return $this->json([
