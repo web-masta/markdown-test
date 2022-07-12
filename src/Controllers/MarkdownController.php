@@ -7,7 +7,7 @@
 
     class MarkdownController extends AbstractController
     {
-        #[Route('/markdown', name: 'markdown_index')]
+        #[Route('/markdown', name: 'markdown_form')]
         public function index(): Response
         {
             return $this->json([
