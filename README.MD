@@ -38,6 +38,9 @@ markdown:
         '%kernel.project_dir%/vendor/web-masta/markdown-test/templates': ~
 ```
 
+## Использование
+Проверить работу можно по роуту `/markdown`.
+
 ## Пояснение
 
 * Контроллер рендерит форму с полем `textarea`.
