@@ -20,7 +20,7 @@
         {
             return $this->json([
                 'status' => 'success',
-                'output' => 'some formatted text',
+                'output' => 'some <strong>formatted</strong> text',
             ]);
         }
 
