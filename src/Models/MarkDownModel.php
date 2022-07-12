@@ -39,7 +39,7 @@ class MarkDownModel
      */
     public function replace(): string {
         $string = $this->bold($this->text);
-        return $this->italics($string);
+        return nl2br($this->italics($string));
     }
 
     /**
