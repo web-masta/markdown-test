@@ -21,12 +21,24 @@ class MarkDownModel
     ];
 
     /**
-     * Perform filters
+     * @var string
+     */
+    protected string $text;
+
+    /**
+     * Basic security check
      * @param string $string
+     */
+    public function __construct(string $string) {
+        $this->text = htmlspecialchars($string);
+    }
+
+    /**
+     * Perform filters
      * @return string
      */
-    public function replace(string $string): string {
-        $string = $this->bold($string);
+    public function replace(): string {
+        $string = $this->bold($this->text);
         return $this->italics($string);
     }
 

@@ -1,10 +1,12 @@
 <?php
     namespace WebMasta\MarkdownTest\Controllers;
-    
+
     use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+    use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\Response;
     use Symfony\Component\Routing\Annotation\Route;
     use WebMasta\MarkdownTest\Form\MarkdownForm;
+    use WebMasta\MarkdownTest\Models\MarkDownModel;
 
     class MarkdownController extends AbstractController
     {
@@ -20,11 +22,19 @@
         }
 
         #[Route('/markdown/api', name: 'markdown_api')]
-        public function api(): Response
+        public function api(Request $request): Response
         {
+            $status = 'error';
+            $result = null;
+
+            if (null !== $request->request->get('text')) {
+                $status = 'success';
+                $markdown = new MarkDownModel($request->request->get('text'));
+                $result = $markdown->replace();
+            }
             return $this->json([
-                'status' => 'success',
-                'output' => 'some <strong>formatted</strong> text',
+                'status' => $status,
+                'result' => $result,
             ]);
         }
     }

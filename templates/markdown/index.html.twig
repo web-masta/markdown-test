@@ -13,12 +13,8 @@
         }
         #markdown-preview {
             width: 100%;
-            border-radius: 4px;
-            border: 1px solid #ffbb9a;
             min-height: 50px;
             margin-top: 20px;
-            background-color: #fff4de;
-            padding: 20px;
         }
     </style>
     <div class="wrapper">
@@ -33,4 +29,46 @@
         <div id="markdown-preview" style="display: none"></div>
 
     </div>
+
+    <script>
+        function handleChange(event) {
+            const preview = document.getElementById("markdown-preview");
+            const value = event.target.value;
+            const data = "text=" + value;
+
+            fetch('/markdown/api', {
+                method: 'POST',
+                body: data,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Accept': '*/*',
+                }
+            }).then(function (response) {
+                if (response.ok) {
+                    return response.json();
+                }
+                return Promise.reject(response);
+            }).then(function (data) {
+                if(data.status === 'success') {
+                    preview.innerHTML = data.result;
+                } else {
+                    preview.innerHTML = 'Error';
+                }
+            }).catch(function (error) {
+                console.warn('Something went wrong.', error);
+            });
+
+            show(preview);
+            if(!event.target.value) {
+                hide(preview);
+            }
+        }
+
+        const show = function (elem) {
+            elem.style.display = 'block';
+        };
+        const hide = function (elem) {
+            elem.style.display = 'none';
+        };
+    </script>
 {% endblock %}

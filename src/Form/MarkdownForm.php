@@ -13,7 +13,7 @@ class MarkdownForm extends AbstractType
         $builder
             ->add('text', TextareaType::class, [
                 'attr' => [
-                    'class' => '',
+                    'oninput' => 'handleChange(event)',
                 ],
             ]);
     }
