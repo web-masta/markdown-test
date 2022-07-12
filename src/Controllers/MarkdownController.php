@@ -10,10 +10,18 @@
         #[Route('/markdown', name: 'markdown_form')]
         public function index(): Response
         {
-            return $this->json([
-                'status' => 'success',
-                'message' => 'Welcome to Markdown MarkdownController!',
-                'rand' => rand(1, 100),
+            return $this->render('markdown/index.html.twig', [
+                'title' => 'Markdown Test',
             ]);
         }
+
+        #[Route('/markdown/api', name: 'markdown_api')]
+        public function api(): Response
+        {
+            return $this->json([
+                'status' => 'success',
+                'output' => 'some formatted text',
+            ]);
+        }
+
     }
