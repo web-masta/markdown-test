@@ -1,0 +1,5 @@
+# config/routes.yaml
+markdown_form:
+  path: /markdown
+  # the controller value has the format 'controller_class::method_name'
+  controller: WebMasta\MarkdownTest\Controllers::index
