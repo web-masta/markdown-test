@@ -1,0 +1,7 @@
+services:
+    WebMasta\MarkdownTest\Controllers\MarkdownController:
+    class: WebMasta\MarkdownTest\Controllers\MarkdownController
+    arguments:
+    tags: ['controller.service_arguments']
+    calls:
+      - ['setContainer', ['@service_container']]
