@@ -1,3 +1,0 @@
-markdown_form:
-  path: /markdown
-  controller: WebMasta\MarkdownTest\Controllers\MarkdownController::index
